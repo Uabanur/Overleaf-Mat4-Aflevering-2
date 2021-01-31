@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{01325 Mathematics - 4 Homework 1}
+\author{Roar Nind Steffensen (s144107)}
+\date{February 2016}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\textbf{ To be handed in February 17, at 15.15 o'clock.}
+\end{center}
+ \vspace{5mm}
+ 
+\section*{Problem 3.9}
+
+Consider a sequence $\{w_k\}_{k=1}^\infty$ of positive real numbers, and define the weighted $\ell^1$-space $\ell_w^1 \left(\mathbb{N}\right)$ by
+
+\begin{equation*}
+    \ell_w^1(\mathbb{N}) := \left \{ \{x_k\}_{k=1}^\infty \;| \; x_k \in \mathbb{C}, \; \sum_{k=1}^\infty |x_k|w_k < \infty \right \}
+\end{equation*}
+(i) Show that the expression $|| \cdot ||$ given by
+
+\begin{equation*}
+    ||\{x_k\}_{k=1}^\infty||:= \sum_{k=1}^\infty |x_k|w_k
+\end{equation*}\\
+
+defines a norm on $\ell_w^1(\mathbb{N})$.\\
+We now consider the special choice
+\begin{equation*}
+    w_k := 2^k,\; k\in \mathbb{N}
+\end{equation*}
+(ii) Show that $\ell_w^1(\mathbb{N})$ is a subspace of $\ell^1(\mathbb{N})$.\\
+\\
+(iii) Find a sequence $\{x_k\}_{k=1}^\infty$ belonging to $\ell^1(\mathbb{N})$, but not to $\ell_w^1(\mathbb{N})$\\
+\\
+(iv) Show that the left-shift operator 
+\begin{equation*}
+    T(x_1,x_2,...)=(x_2,x_3,...)
+\end{equation*}
+
+is bounded from $\ell_w^1(\mathbb{N})$ into $\ell_w^1(\mathbb{N})$.\\
+\\
+(v) Calculate the exact value of the norm of the operator $T$ considered in (iv).
+
+\subsection*{Solution (i):}
+
+For this to be a norm, it must follow \textbf{definition 2.1.1}.
+\\
+\\
+(First condition:) $|| \cdot ||  \rightarrow \mathbb{R}$. \\
+- This is true since it takes the sum of absolute squares multiplied with a positive real number \checkmark.\\
+\\
+First condition: $||\textbf{v}|| \geq 0, \forall\textbf{v} \in V,\; and \; ||\textbf{v}||=0 \Leftrightarrow \textbf{v}=0$ .\\
+- Again, a sum of positive real values; this is true \checkmark.\\
+\\
+Second condition: $||\alpha \textbf{v}|| = |\alpha| \; ||\textbf{v}||, \; \forall \textbf{v} \in V, \; \alpha \in \mathbb{C}$\\
+- The absolute value of the constant can be put outside the sum as it is multiplied on all elements \checkmark.\\
+\\
+Third condition: $|| \textbf{v}+\textbf{w}|| \leq ||\textbf{v}|| +|| \textbf{w}||,\; \forall \textbf{v,w} \in V$.\\
+- Using the triangle inequality on the absolute value in the sum, we see that this is also true \checkmark. 
+\subsection*{Solution (ii):}
+Using \textbf{lemma 1.2.7} we see that
+\begin{equation*}
+    \alpha \; x_k + \beta \, y_k \; for \; all \; x_k, y_k \in \ell_w^1, \; \alpha, \beta \in \mathbb{C} 
+\end{equation*}
+
+Is composed of two sums each multiplied by a constant which must be finite since the initial sums were finite, so the linear combination must also be in $\ell_w^1$, making this subset a subspace of $\ell^1(\mathbb{N})$. 
+
+\subsection*{Solution (iii):}
+
+Since both sums of the sequences must be finite to be in their vector spaces, if we can choose the sequence $\left \{\frac{1}{2^k}\right \}_{k=1}^\infty$, we get the following two sums:
+
+\begin{gather*}
+    \sum_{k=1}^\infty | \frac{1}{2^k}| \: and \: \sum_{k=1}^\infty | \frac{1}{2^k}|2^k
+\end{gather*}
+
+Where we see that the sum on the left, is a know sum which converges to 1, but the sum on the right sums over ones, which goes to infinity. Meaning the sequence is in $\ell^1(\mathbb{N})$, but not in $\ell_w^1(\mathbb{N})$.
+
+\subsection*{Solution (iv):}
+Using \textbf{definition 2.4.1} we get the following norms
+
+\begin{gather*}
+    ||T x_k ||= \sum_{k=1}^\infty |x_{k+1}|2^k = \frac{1}{2}\sum_{k=1}^\infty |x_{k+1}|2^{k+1} =\\
+    \frac{1}{2}\sum_{k=2}^\infty |x_{k}|2^k \leq \frac{1}{2}\sum_{k=1}^\infty |x_{k}|2^k = K ||x_k||
+\end{gather*}
+
+With $K=\frac{1}{2}$. \\
+\\
+Showing us that the operator is bounded. \\
+(It is assumed that this is a linear operator, but that is easily shown as any linear operation on the elements in the sequence fulfills the requirements as the first element is withdrawn, Eq. (2.6) section 2.4 in the book).
+
+\subsection*{Solution (v):}
+
+The difference from $|| T x_k ||$ to $K ||x_k||$ from (iv), is the first element of the sum multiplied by $K$. Meaning that the minimum value of $K$ is when the first element of the sum is zero, which leaves us with $||T|| = \frac{1}{2}$. 
+
+\section*{Problem 216 (Extra exercises)}
+Consider the set of functions
+\begin{equation*}
+    V := \{f: \mathbb{R} \rightarrow \mathbb{C} | f(-\pi) = f(\pi)=0 \}.
+\end{equation*}
+(i) Show that $V$ is a vector space with respect to the usual operations of addition and scalar multiplication.\\
+\\
+(ii) Give an example of a linear operator that does not map V into V. 
+
+\subsection*{Solution (i):}
+
+To show that $V$ is a vector space, we use that $V$ is a subset of the vector space containing all functions. For $V$ to be a subspace we again use \textbf{lemma 1.2.7} and see that the requirements of linear combinations will not alter $f(-\pi)=f(\pi)=0$. 
+
+\subsection*{Solution (ii):}
+A possible linear operator is a translation along the x-axis. 
+\begin{equation*}
+    T(f(x)) = f(x+1)
+\end{equation*}
+Which does not comply with $f(-\pi)=f(\pi)=0$ and therefore not mapping from V into V. The translation could in principle be any amount $a \in \mathbb{R} \backslash 0$.
+\\
+
+To be sure that this operator is linear we must again check Eq. (2.6) in section 2.4 in the book:\\
+\\
+\begin{gather*}
+    T(\alpha f(x) + \beta g(x)) = T((\alpha f + \beta g) (x)) = (\alpha f + \beta g) (x+1) = \\
+    \alpha f(x+1) + \beta g(x+1) = \alpha T(f(x)) + \beta T(g(x))
+\end{gather*}
+
+Which makes in a linear operator \checkmark. 
+\end{document}
